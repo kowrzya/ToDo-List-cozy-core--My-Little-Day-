@@ -1,8 +1,6 @@
 "use strict";
 const taskListEl = document.querySelector(".task-list");
-const btn = document.querySelector('.delete-task') 
-
-
+const taskFormEl = document.querySelector(".task-form")
 
 let tasks = [
   { id: crypto.randomUUID(), text: "Купить молоко", done: false },
@@ -35,7 +33,7 @@ function toggleTask(tasks, id) {
 
 function createTaskHTML(task) {
   return `
-    <li class = " ${task.done ? "task-completed" : "task"}" data-id = "${task.id}" >
+    <li class = " ${task.done ? "task completed" : "task"}" data-id = "${task.id}" >
     <button class="task-checkbox"> ${task.done ? "✓" : "*"}</button>
     <span class="task-text">${task.text}</span>
     <span class="task-time"> ${task.done ? "done" : ""}</span>
@@ -63,15 +61,29 @@ function handleDeleteTask(id) {
   renderTasks(tasks)
 }
 
-// renderTasks(tasks)
 
 taskListEl.addEventListener('click',(e)=>{
+  
   if (e.target.classList.contains('delete-task')) {
     const li = e.target.closest('.task')
     handleDeleteTask(li.dataset.id)
-    console.log(li.dataset.id)
-    console.log(typeof li.dataset.id)
-    console.log(typeof li.dataset.id === 'string')
+    
   }
+
+  if (e.target.classList.contains('task-checkbox')){
+    const li = e.target.closest('.task')
+    handleToggleTask(li.dataset.id)
+  }
+})
+
+taskFormEl.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const inputEl = document.querySelector('.task-input')
+  const text = inputEl.value
+  if (text !== "" ){
+    handleAddTask(text)
+  }
+
+  inputEl.value = ''
 })
 
