@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: rgb(209, 173, 132);
+}
+
+.app{
+    max-width: 1000px;
+    margin: auto;
+}
+
+.date {
+    margin-bottom: 50px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.content{
+    margin-bottom: 50px;
+}
+
+.intro {
+    margin-bottom: 50px;
+}
+
+.content{
+    gap: 100px;
+    display:flex;
+    justify-content: center;
+}
+
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tasks-card {
+    background-color: bisque;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+
+
+    width: 400px;
+    padding: 25px;
+}
+
+.progress-card {
+    background-color: bisque;
+    border-radius: 24px;
+    width: 300px;
+    padding: 15px
+}
