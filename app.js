@@ -16,6 +16,10 @@ function addTask(tasks, text) {
   return [...tasks, newTasks];
 }
 
+function saveTasks(tasks){
+
+}
+
 function deleteTask(tasks, id) {
   const newTask = tasks.filter((task) => {
     return task.id !== id;
