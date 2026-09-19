@@ -1,161 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>My Little Day</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <main class="app">
+      <div class="decor decor-star star-1">✦</div>
+      <div class="decor decor-star star-2">☆</div>
+      <div class="decor decor-star star-3">✧</div>
 
-        <!-- Header -->
-        <header class="header">
-            <div class="greeting">
-                <span class="greeting-icon">☕</span>
+      <img class="decor goat goat-1" src="cozy_goat_stickers/goat_flower.png" />
+      <img class="decor goat goat-2" src="cozy_goat_stickers/goat_heart.png" />
+      <!-- Header -->
+      <header class="header">
+        <div class="greeting">
+            <div class="greeting-icon"></div>
+            <p class="date">Monday, September 11</p>
+            <h1>My little day</h1>
+        </div>
 
-                <div>
-                    <p class="date">Monday, September 11</p>
-                    <h1>My little day</h1>
-                </div>
-            </div>
+        <button class="theme-button">☼</button>
+      </header>
 
-            <button class="theme-button">☼</button>
-        </header>
+      <!-- Intro -->
+      <section class="intro">
+        <p>Let's make today a little better ♡</p>
+      </section>
 
+      <!-- Content -->
+      <section class="content">
+        <!-- Tasks -->
+        <div class="tasks-card">
+          <div class="card-header">
+            <h2>✦ Today's tasks</h2>
+            <span class="task-count">3/5</span>
+          </div>
 
-        <!-- Intro -->
-        <section class="intro">
-            <p>Let's make today a little better ♡</p>
-        </section>
+          <ul class="task-list">
+            <li class="task">
+              <button class="task-checkbox">*</button>
 
+              <span class="task-text"> Finish frontend homework </span>
 
-        <!-- Content -->
-        <section class="content">
+              <span class="task-time"> 18:00 </span>
 
-            <!-- Tasks -->
-            <div class="tasks-card">
+              <button class="delete-task">×</button>
+            </li>
 
-                <div class="card-header">
-                    <h2>✦ Today's tasks</h2>
-                    <span class="task-count">3/5</span>
-                </div>
+            <li class="task">
+              <button class="task-checkbox">*</button>
 
+              <span class="task-text"> Go to the gym </span>
 
-                <ul class="task-list">
+              <span class="task-time"> 20:00 </span>
 
-                    <li class="task">
-                        <button class="task-checkbox">*</button>
+              <button class="delete-task">×</button>
+            </li>
 
-                        <span class="task-text">
-                            Finish frontend homework
-                        </span>
+            <li class="task completed">
+              <button class="task-checkbox">✓</button>
 
-                        <span class="task-time">
-                            18:00
-                        </span>
+              <span class="task-text"> Clean my desk </span>
 
-                        <button class="delete-task">×</button>
-                    </li>
+              <span class="task-time"> done </span>
 
+              <button class="delete-task">×</button>
+            </li>
 
-                    <li class="task">
-                        <button class="task-checkbox">*</button>
+            <li class="task">
+              <button class="task-checkbox">*</button>
 
-                        <span class="task-text">
-                            Go to the gym
-                        </span>
+              <span class="task-text"> Read 10 pages </span>
 
-                        <span class="task-time">
-                            20:00
-                        </span>
+              <span class="task-time"> 22:00 </span>
 
-                        <button class="delete-task">×</button>
-                    </li>
+              <button class="delete-task">×</button>
+            </li>
+          </ul>
 
+          <!-- Add task -->
+          <form class="task-form">
+            <input
+              class="task-input"
+              type="text"
+              placeholder="What needs to be done?"
+            />
 
-                    <li class="task completed">
-                        <button class="task-checkbox">✓</button>
+            <button class="add-task-button">+</button>
+          </form>
+        </div>
 
-                        <span class="task-text">
-                            Clean my desk
-                        </span>
+        <!-- Progress -->
+        <aside class="progress-card">
+          <h2>♡ Little progress</h2>
 
-                        <span class="task-time">
-                            done
-                        </span>
+          <div class="progress-circle">
+            <span>70%</span>
+          </div>
 
-                        <button class="delete-task">×</button>
-                    </li>
+          <p class="progress-text">You're doing great!</p>
 
+          <span class="progress-small"> 3 of 5 tasks completed </span>
+        </aside>
+      </section>
 
-                    <li class="task">
-                        <button class="task-checkbox">*</button>
-
-                        <span class="task-text">
-                            Read 10 pages
-                        </span>
-
-                        <span class="task-time">
-                            22:00
-                        </span>
-
-                        <button class="delete-task">×</button>
-                    </li>
-
-                </ul>
-
-
-                <!-- Add task -->
-                <form class="task-form">
-
-                    <input
-                        class="task-input"
-                        type="text"
-                        placeholder="What needs to be done?"
-                    >
-
-                    <button class="add-task-button">
-                        +
-                    </button>
-
-                </form>
-
-            </div>
-
-
-            <!-- Progress -->
-            <aside class="progress-card">
-
-                <h2>♡ Little progress</h2>
-
-                <div class="progress-circle">
-                    <span>70%</span>
-                </div>
-
-                <p class="progress-text">
-                    You're doing great!
-                </p>
-
-                <span class="progress-small">
-                    3 of 5 tasks completed
-                </span>
-
-            </aside>
-
-        </section>
-
-
-        <!-- Footer -->
-        <footer>
-            <p>take it slow · you are doing enough ♡</p>
-        </footer>
-
+      <!-- Footer -->
+      <footer>
+        <p>take it slow · you are doing enough ♡</p>
+      </footer>
     </main>
-<script src="app.js" type="module"></script>
-</body>
+    <script src="app.js" type="module"></script>
+  </body>
 </html>

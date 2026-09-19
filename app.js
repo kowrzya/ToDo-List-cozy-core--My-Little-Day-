@@ -87,3 +87,4 @@ taskFormEl.addEventListener('submit', (e) => {
   inputEl.value = ''
 })
 
+console.log(JSON.stringify(tasks))

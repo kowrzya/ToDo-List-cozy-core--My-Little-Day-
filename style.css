@@ -1,16 +1,40 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 
 body {
-    background: rgb(209, 173, 132);
+    min-height: 100vh;
+    background: rgb(209,173,132);
+}
+
+body::before{
+    content: "✦  ☆  ✧  ⋆  ✦  ☆";
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+.greeting-icon{
+    background-image: url('cozy_goat_stickers/goat_star.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
 }
 
 .app{
-    max-width: 1000px;
+    position: relative;
+    max-width: 1200px;
     margin: auto;
+    /* background: url('images/Без\ названия\ \(4\).jfif'); */
+    /* border-radius: 25px;
+    border-style: dashed;
+    border-color: beige; */
 }
 
 .date {
@@ -23,18 +47,14 @@ body {
     margin-bottom: 50px;
 }
 
-.content{
-    margin-bottom: 50px;
-}
-
 .intro {
     margin-bottom: 50px;
 }
 
 .content{
-    gap: 100px;
     display:flex;
     justify-content: center;
+    gap: 100px;
 }
 
 .card-header{
@@ -46,10 +66,6 @@ body {
 .tasks-card {
     background-color: bisque;
     border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-
-
     width: 400px;
     padding: 25px;
 }
@@ -59,4 +75,22 @@ body {
     border-radius: 24px;
     width: 300px;
     padding: 15px
+}
+
+footer{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.decor{
+    position: absolute;
+} .goat{
+    width: 200px;
+    z-index: 10;
+    pointer-events: none;
+} .goat-1{
+    margin-left: 600px;
+}.goat-2{
+    margin-top: 380px;
+    margin-left: 950px;
 }
