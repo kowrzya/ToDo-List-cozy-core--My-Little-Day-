@@ -86,10 +86,16 @@ function updateProgress(tasks){
   let progressPercent = document.querySelector('.progress-percent')
   const total = tasks.length
   const done = tasks.filter(task => task.done).length
-  const percent = (done / total)*100
-  taskCount.textContent = `${done}/${total}`
-  progressSmall.textContent = `${done} of ${total} tasks completed`
-  progressPercent.textContent = Math.round(percent) +  '%'
+  if (total === 0){
+    progressPercent.textContent = `There are no tasks for now.`
+    taskCount.textContent = ''
+    progressSmall.textContent = ''
+  } else{
+    const percent = (done / total)*100
+    progressSmall.textContent = `${done} of ${total} tasks completed`
+    progressPercent.textContent = Math.round(percent) +  '%'
+    taskCount.textContent = `${done}/${total}`
+  }
 
 }
 
