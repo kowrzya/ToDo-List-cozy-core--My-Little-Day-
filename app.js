@@ -1,11 +1,18 @@
 "use strict";
+
 const taskListEl = document.querySelector(".task-list");
 const taskFormEl = document.querySelector(".task-form")
+const progressCardEl = document.querySelector('.progress-card')
 
-let tasks = [
-  { id: crypto.randomUUID(), text: "Купить молоко", done: false },
-  { id: crypto.randomUUID(), text: "Помыть посуду", done: false },
-];  
+const demoTasks =[
+  { id: "demo-1", text: "Finish homework", done: true },
+  { id: "demo-2", text: "Go to the gym", done: false },
+  { id: "demo-3", text: "Clean my desk", done: true },
+  { id: "demo-4", text: " Read 10 pages ", done: false },
+]
+
+
+let tasks = loadTasks()
 
 function addTask(tasks, text) {
   const newTasks = {
@@ -16,8 +23,13 @@ function addTask(tasks, text) {
   return [...tasks, newTasks];
 }
 
-function saveTasks(tasks){
+function loadTasks(){
+  const saved = localStorage.getItem('tasks');
+  return saved !== null? JSON.parse(saved) : demoTasks
+}
 
+function saveTasks(tasks){
+  localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
 function deleteTask(tasks, id) {
@@ -54,29 +66,45 @@ function renderTasks(tasks){
 function handleAddTask(text) {
   tasks = addTask(tasks, text)
   renderTasks(tasks)
+  saveTasks(tasks)
 }
 
 function handleToggleTask(id) {
   tasks = toggleTask(tasks, id)
   renderTasks(tasks)
+  saveTasks(tasks)
 }
 function handleDeleteTask(id) {
   tasks = deleteTask(tasks, id)
   renderTasks(tasks)
+  saveTasks(tasks)
 }
 
+function updateProgress(tasks){
+  let taskCount = document.querySelector(".task-count")
+  let progressSmall = document.querySelector(".progress-small")
+  let progressPercent = document.querySelector('.progress-percent')
+  const total = tasks.length
+  const done = tasks.filter(task => task.done).length
+  const percent = (done / total)*100
+  taskCount.textContent = `${done}/${total}`
+  progressSmall.textContent = `${done} of ${total} tasks completed`
+  progressPercent.textContent = Math.round(percent) +  '%'
+
+}
 
 taskListEl.addEventListener('click',(e)=>{
   
   if (e.target.classList.contains('delete-task')) {
     const li = e.target.closest('.task')
     handleDeleteTask(li.dataset.id)
-    
+    updateProgress(tasks)
   }
 
   if (e.target.classList.contains('task-checkbox')){
     const li = e.target.closest('.task')
     handleToggleTask(li.dataset.id)
+    updateProgress(tasks)
   }
 })
 
@@ -87,8 +115,10 @@ taskFormEl.addEventListener('submit', (e) => {
   if (text !== "" ){
     handleAddTask(text)
   }
+  updateProgress(tasks)
 
   inputEl.value = ''
 })
 
-console.log(JSON.stringify(tasks))
+updateProgress(tasks)
+renderTasks(tasks)
